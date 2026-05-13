@@ -400,13 +400,12 @@ function Wonderstouch() {
     let interval: any;
     const startScroll = () => {
       interval = setInterval(() => {
-        // Content moves left (scrollLeft increases)
         if (el.scrollLeft >= el.scrollWidth / 3) {
           el.scrollLeft = 0;
         } else {
           el.scrollLeft += 1;
         }
-      }, 30);
+      }, 20); // Normalized smooth speed
     };
     startScroll();
     const handleMouseEnter = () => clearInterval(interval);
@@ -1049,7 +1048,7 @@ function Wonderstouch() {
         </div>
 
         {/* NAVIGATION ARROWS - OVERLAID */}
-        <button 
+        <button
           onClick={() => {
             const el = document.getElementById("services-scroll");
             if (el) el.scrollBy({ left: -450, behavior: "smooth" });
@@ -1065,7 +1064,7 @@ function Wonderstouch() {
           <ChevronLeft size={48} color="#fff" />
         </button>
 
-        <button 
+        <button
           onClick={() => {
             const el = document.getElementById("services-scroll");
             if (el) el.scrollBy({ left: 450, behavior: "smooth" });
@@ -1115,11 +1114,11 @@ function Wonderstouch() {
           `}
         </style>
 
-        <div 
+        <div
           id="services-scroll"
-          style={{ 
-            display: "flex", 
-            overflowX: "hidden", 
+          style={{
+            display: "flex",
+            overflowX: "hidden",
             padding: "20px 0",
             scrollBehavior: "smooth",
             msOverflowStyle: "none",
@@ -1158,7 +1157,7 @@ function Wonderstouch() {
                         zIndex: 0
                       }}
                     >
-                      <source src={s.video} type="video/mp4" />
+                      <source src={s.video ? encodeURI(s.video) : ""} type="video/mp4" />
                     </video>
                   )}
                   <div className="service-content">
@@ -1184,6 +1183,121 @@ function Wonderstouch() {
               ))}
             </React.Fragment>
           ))}
+        </div>
+      </section>
+
+      <section style={{ background: "#D4AF37", padding: "40px 0 30px", textAlign: "center" }}>
+        <div className="ws-container">
+          <h2 className="bebas" style={{ fontSize: "clamp(28px, 4vw, 42px)", color: "#111", marginBottom: 10 }}>
+            What Our Customers Say
+          </h2>
+          <p style={{ color: "#333", fontSize: 14, maxWidth: 700, margin: "0 auto", lineHeight: 1.5 }}>
+            With 100+ Google Reviews and a 4.6 rating our professional barbers guarantee unmatched
+            satisfaction in every haircut, beard trimming, and men's facial service.
+          </p>
+        </div>
+      </section>
+
+      <section style={{ background: "#F0F2F5", padding: "60px 0 100px", position: "relative" }}>
+        <div className="ws-container">
+          {/* Summary Card */}
+          <div style={{
+            background: "#fff", borderRadius: "20px", padding: "20px 30px", marginBottom: 40,
+            display: "flex", flexDirection: "column", gap: 5, boxShadow: "0 2px 10px rgba(0,0,0,0.05)"
+          }}>
+            <div style={{ fontSize: 14, fontWeight: 600, color: "#333" }}>Wonderstouch - Best Men's Barbershop in Dubai</div>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <span style={{ fontSize: 18, fontWeight: "bold" }}>4.6</span>
+              <div style={{ display: "flex", gap: 2 }}>
+                {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#FFB400" color="#FFB400" />)}
+              </div>
+            </div>
+            <div style={{ fontSize: 13, color: "#666" }}>
+              135 reviews on <span style={{ color: "#4285F4", fontWeight: "bold" }}>G</span><span style={{ color: "#EA4335", fontWeight: "bold" }}>o</span><span style={{ color: "#FBBC05", fontWeight: "bold" }}>o</span><span style={{ color: "#4285F4", fontWeight: "bold" }}>g</span><span style={{ color: "#34A853", fontWeight: "bold" }}>l</span><span style={{ color: "#EA4335", fontWeight: "bold" }}>e</span>
+            </div>
+          </div>
+
+          {/* Reviews Carousel */}
+          <div style={{ position: "relative" }}>
+            <button
+              onClick={() => {
+                const el = document.getElementById("reviews-scroll");
+                if (el) el.scrollBy({ left: -350, behavior: "smooth" });
+              }}
+              style={{
+                position: "absolute", left: -25, top: "50%", transform: "translateY(-50%)", zIndex: 5,
+                width: 50, height: 50, borderRadius: "50%", border: "none", background: "#fff",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.1)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer"
+              }}
+            >
+              <ChevronLeft size={24} color="#666" />
+            </button>
+
+            <button
+              onClick={() => {
+                const el = document.getElementById("reviews-scroll");
+                if (el) el.scrollBy({ left: 350, behavior: "smooth" });
+              }}
+              style={{
+                position: "absolute", right: -25, top: "50%", transform: "translateY(-50%)", zIndex: 5,
+                width: 50, height: 50, borderRadius: "50%", border: "none", background: "#fff",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.1)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer"
+              }}
+            >
+              <ChevronRight size={24} color="#666" />
+            </button>
+
+            <div
+              id="reviews-scroll"
+              style={{
+                display: "flex", gap: 20, overflowX: "hidden", padding: "10px 0",
+                scrollBehavior: "smooth"
+              }}
+            >
+              {[
+                { name: "Gujjar Badsha", initial: "G", color: "#004D40", text: "Best experience ever, the staff is very professional and the atmosphere is great." },
+                { name: "Sufaid cherumoth", initial: "S", color: "#333", text: "Highly recommended for anyone looking for a precision cut in Dubai." },
+                { name: "Frank Lin", initial: "F", color: "#E91E63", text: "Great experience with Davido. He really knows how to style according to face shape." },
+                { name: "Ahmed Khan", initial: "A", color: "#3F51B5", text: "The best skin fade I've had in years. Istanbul branch is top notch." },
+                { name: "James Wilson", initial: "J", color: "#FF5722", text: "Premium products and excellent service. Worth every dirham." }
+              ].map((rev, idx) => (
+                <div key={idx} style={{
+                  flex: "0 0 350px", background: "#fff", borderRadius: "15px", padding: "25px",
+                  display: "flex", flexDirection: "column", gap: 15, boxShadow: "0 4px 15px rgba(0,0,0,0.05)"
+                }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+                    <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+                      <div style={{
+                        width: 45, height: 45, borderRadius: "50%", background: rev.color,
+                        display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: "bold"
+                      }}>
+                        {rev.initial}
+                      </div>
+                      <div>
+                        <div style={{ fontSize: 15, fontWeight: 600, color: "#333" }}>{rev.name}</div>
+                        <div style={{ fontSize: 12, color: "#999" }}>2 months ago</div>
+                      </div>
+                    </div>
+                    <div style={{ color: "#4285F4", fontWeight: "bold", fontSize: 18 }}>G</div>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                    <div style={{ display: "flex", gap: 2 }}>
+                      {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#FFB400" color="#FFB400" />)}
+                    </div>
+                    <div style={{
+                      width: 16, height: 16, borderRadius: "50%", background: "#4285F4",
+                      display: "flex", alignItems: "center", justifyContent: "center"
+                    }}>
+                      <div style={{ borderBottom: "2px solid #fff", borderRight: "2px solid #fff", width: 4, height: 8, transform: "rotate(45deg)", marginTop: -2 }}></div>
+                    </div>
+                  </div>
+                  <p style={{ fontSize: 14, color: "#555", lineHeight: 1.6, margin: 0 }}>
+                    {rev.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1278,119 +1392,6 @@ function Wonderstouch() {
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section id="services" className="ws-section" style={{ background: "#111111" }}>
-        <div className="ws-container">
-          <Reveal>
-            <div style={{ textAlign: "center", marginBottom: 60 }}>
-              <div className="eyebrow">WHAT WE OFFER</div>
-              <h2
-                className="bebas"
-                style={{
-                  fontSize: "clamp(36px, 5vw, 68px)",
-                  color: "#fff",
-                  margin: "16px 0 14px",
-                }}
-              >
-                OUR FULL GROOMING MENU
-              </h2>
-              <p style={{ fontSize: 15, color: "#E8E0D5", maxWidth: 600, margin: "0 auto" }}>
-                From a quick fade to a full grooming ritual — we do it all, with precision.
-              </p>
-            </div>
-          </Reveal>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
-              gap: 2,
-            }}
-          >
-            {SERVICES.map((s) => (
-              <Reveal key={s.name}>
-                <div
-                  className="service-card"
-                  style={{
-                    position: "relative",
-                    aspectRatio: "3/4",
-                    overflow: "hidden",
-                    background: "#000",
-                  }}
-                >
-                  <img
-                    className="service-img"
-                    src={s.img}
-                    alt={s.name}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      transition: "transform 0.4s ease",
-                    }}
-                  />
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      background:
-                        "linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0) 55%)",
-                      pointerEvents: "none",
-                    }}
-                  />
-                  <div
-                    className="service-overlay"
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      background: "rgba(17,17,17,0.55)",
-                      borderTop: "3px solid #D4AF37",
-                      opacity: 0,
-                      transition: "opacity 0.3s ease",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      padding: 24,
-                    }}
-                  >
-                    <p
-                      style={{
-                        color: "#E8E0D5",
-                        fontSize: 13,
-                        textAlign: "center",
-                        lineHeight: 1.7,
-                      }}
-                    >
-                      {s.desc}
-                    </p>
-                  </div>
-                  <div
-                    style={{
-                      position: "absolute",
-                      bottom: 24,
-                      left: 24,
-                      right: 24,
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "flex-end",
-                      zIndex: 2,
-                    }}
-                  >
-                    <div className="bebas" style={{ fontSize: 28, color: "#fff" }}>
-                      {s.name}
-                    </div>
-                    <ArrowRight size={16} color="#D4AF37" />
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          <div style={{ textAlign: "center", marginTop: 50 }}>
-            <GoldButton outlined>VIEW FULL GROOMING MENU →</GoldButton>
-          </div>
-        </div>
-      </section>
 
       {/* GALLERY */}
       <section className="ws-section" style={{ background: "#F5F0E8", color: "#3D3D3D" }}>
