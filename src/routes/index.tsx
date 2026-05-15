@@ -86,8 +86,6 @@ const LOCATIONS: Record<
 const NAV_LINKS = [
   { name: "Home", href: "#" },
   { name: "Services", href: "#services", hasDropdown: true, dropdownKey: "services" },
-  { name: "Home Service", href: "#", hasDropdown: true, dropdownKey: "homeService" },
-  { name: "Shop", href: "#", hasDropdown: true, dropdownKey: "shop" },
   { name: "Price List", href: "#pricing", hasDropdown: true, dropdownKey: "priceList" },
   { name: "About Us", href: "#about" },
 ];
@@ -119,14 +117,7 @@ const PRICE_LIST_SUB = [
   { name: "Facial Treatment" },
 ];
 
-const SHOP_SUB = [
-  { name: "Hair Styling" },
-  { name: "Hair Care" },
-  { name: "Beard Care" },
-  { name: "Shave" },
-  { name: "Body" },
-  { name: "Gift Sets" },
-];
+
 
 const SERVICES = [
   {
@@ -512,7 +503,7 @@ function VyneBarbershop() {
                 )}
               </a>
 
-              {(l.dropdownKey === "services" || l.dropdownKey === "homeService") && activeDropdown === l.dropdownKey && (
+              {l.dropdownKey === "services" && activeDropdown === l.dropdownKey && (
                 <div
                   style={{
                     position: "absolute",
@@ -589,39 +580,7 @@ function VyneBarbershop() {
                 </div>
               )}
 
-              {l.dropdownKey === "shop" && activeDropdown === l.dropdownKey && (
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "100%",
-                    left: 0,
-                    background: "#000",
-                    padding: "20px",
-                    minWidth: "200px",
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.8)",
-                    border: "1px solid #222",
-                    zIndex: 1100,
-                    marginTop: 10,
-                  }}
-                >
-                  {SHOP_SUB.map((s) => (
-                    <div
-                      key={s.name}
-                      style={{
-                        fontSize: 14,
-                        color: "#fff",
-                        padding: "8px 0",
-                        cursor: "pointer",
-                        transition: "color 0.2s"
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.color = "#D4AF37"}
-                      onMouseLeave={(e) => e.currentTarget.style.color = "#fff"}
-                    >
-                      {s.name}
-                    </div>
-                  ))}
-                </div>
-              )}
+
             </div>
           ))}
         </div>
@@ -744,7 +703,7 @@ function VyneBarbershop() {
                     )}
                   </a>
 
-                  {(l.dropdownKey === "services" || l.dropdownKey === "homeService") && activeDropdown === l.dropdownKey && (
+                  {l.dropdownKey === "services" && activeDropdown === l.dropdownKey && (
                     <div style={{ marginTop: 20, display: "flex", flexDirection: "column", gap: 15 }}>
                       {SUB_SERVICES.map((s) => (
                         <div key={s.name}>
@@ -769,13 +728,7 @@ function VyneBarbershop() {
                     </div>
                   )}
 
-                  {l.dropdownKey === "shop" && activeDropdown === l.dropdownKey && (
-                    <div style={{ marginTop: 20, display: "flex", flexDirection: "column", gap: 15 }}>
-                      {SHOP_SUB.map((s) => (
-                        <div key={s.name} style={{ fontSize: 24, color: "#D4AF37" }}>{s.name}</div>
-                      ))}
-                    </div>
-                  )}
+
                 </div>
               ))}
               
