@@ -25,11 +25,11 @@ export const Route = createFileRoute("/")({
   component: VyneBarbershop,
   head: () => ({
     meta: [
-      { title: "VYNE BARBERSHOP — Men's Barbershop & Grooming Lounge | Ajman" },
+      { title: "VYNE Barbershop" },
       {
         name: "description",
         content:
-          "VYNE BARBERSHOP is a premier men's barbershop located in Al Helio 2, Ajman. Precision cuts, beards, hot towel shaves.",
+          "Premium barbershop in Ajman offering modern cuts, grooming, and professional barber services.",
       },
     ],
   }),
@@ -70,8 +70,8 @@ const LOCATIONS: Record<
     flag: "🇦🇪",
     label: "AJMAN",
     address: "Al Helio 2 St 2, Helio, Ajman, United Arab Emirates",
-    phone: "+971 50 947 4850",
-    whatsapp: "+971 50 947 4850",
+    phone: "+971 67416264",
+    whatsapp: "+971 67416264",
     hours: "Sat–Thu: 9:00 AM – 10:00 PM  •  Fri: 2:00 PM – 10:00 PM",
     currency: "AED",
     mapLabel: "Al Helio 2, Ajman",
@@ -1265,79 +1265,79 @@ function VyneBarbershop() {
       <section id="about" className="ws-section" style={{ background: "#F5F0E8", color: "#3D3D3D", padding: "80px 0 20px" }}>
         <div className="ws-container">
           <Reveal>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: isMobile ? "1fr" : "60% 40%",
-                  gap: isMobile ? 40 : 80,
-                  alignItems: "center",
-                }}
-              >
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: isMobile ? "1fr" : "60% 40%",
+                gap: isMobile ? 40 : 80,
+                alignItems: "center",
+              }}
+            >
 
-                <div>
-                  <h2
-                    className="bebas"
+              <div>
+                <h2
+                  className="bebas"
+                  style={{
+                    fontSize: "clamp(32px, 4vw, 48px)",
+                    color: "#111",
+                    margin: "0 0 20px",
+                    lineHeight: 1,
+                  }}
+                >
+                  About vyne-barbershop
+                </h2>
+                {[
+                  "VYNE BARBERSHOP wasn’t built to be just another barbershop, it was built to be yours.",
+                  "Based in Ajman. 15+ internationally trained barbers. One standard: leave looking your sharpest.",
+                  "Walk in. Sit down. Leave sharp.",
+                ].map((p, i) => (
+                  <p
+                    key={i}
                     style={{
-                      fontSize: "clamp(32px, 4vw, 48px)",
-                      color: "#111",
-                      margin: "0 0 20px",
-                      lineHeight: 1,
+                      fontSize: 15,
+                      color: "#3D3D3D",
+                      lineHeight: 1.85,
+                      margin: "0 0 14px",
                     }}
                   >
-                    About vyne-barbershop
-                  </h2>
+                    {p}
+                  </p>
+                ))}
+
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 25 }}>
                   {[
-                    "VYNE BARBERSHOP wasn’t built to be just another barbershop, it was built to be yours.",
-                    "Based in Ajman. 15+ internationally trained barbers. One standard: leave looking your sharpest.",
-                    "Walk in. Sit down. Leave sharp.",
-                  ].map((p, i) => (
-                    <p
-                      key={i}
+                    "✦ Walk-ins Welcome",
+                    "✦ Premium Men's Products",
+                  ].map((t) => (
+                    <span
+                      key={t}
                       style={{
-                        fontSize: 15,
-                        color: "#3D3D3D",
-                        lineHeight: 1.85,
-                        margin: "0 0 14px",
+                        border: "1px solid #D4AF37",
+                        color: "#D4AF37",
+                        padding: "8px 20px",
+                        fontSize: 10,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.2em",
+                        fontWeight: "bold",
                       }}
                     >
-                      {p}
-                    </p>
+                      {t}
+                    </span>
                   ))}
-
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 25 }}>
-                    {[
-                      "✦ Walk-ins Welcome",
-                      "✦ Premium Men's Products",
-                    ].map((t) => (
-                      <span
-                        key={t}
-                        style={{
-                          border: "1px solid #D4AF37",
-                          color: "#D4AF37",
-                          padding: "8px 20px",
-                          fontSize: 10,
-                          textTransform: "uppercase",
-                          letterSpacing: "0.2em",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
                 </div>
-                <img
-                  src="/vyne about us.jpeg"
-                  alt="About VYNE BARBERSHOP"
-                  style={{
-                    width: "100%",
-                    height: isMobile ? 300 : 540,
-                    objectFit: "cover",
-                    outline: "1px solid #D4AF37",
-                    outlineOffset: isMobile ? 10 : 14,
-                  }}
-                />
               </div>
+              <img
+                src="/vyne about us.jpeg"
+                alt="About VYNE BARBERSHOP"
+                style={{
+                  width: "100%",
+                  height: isMobile ? 300 : 540,
+                  objectFit: "cover",
+                  outline: "1px solid #D4AF37",
+                  outlineOffset: isMobile ? 10 : 14,
+                }}
+              />
+            </div>
           </Reveal>
         </div>
       </section>
