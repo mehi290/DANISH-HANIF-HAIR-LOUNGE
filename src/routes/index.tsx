@@ -125,11 +125,10 @@ const SERVICES = [
 ];
 
 const GALLERY = [
-  "/men-hair-style.mp4",
+  "/hasthag barberbeard.mp4",
   "/our work 1.jpg",
   "/men-hair-color.mp4",
   "/our-work.mp4",
-  "/razor hero.mp4",
 ];
 
 const REVIEWS = [
@@ -955,7 +954,7 @@ function HashtagBarbers() {
           }}
         >
           {[
-            ["15+", "Expert Barbers"],
+            ["5+", "Expert Barbers"],
             ["134+", "Google Reviews"],
             ["4.6 ★", "Google Rating"],
           ].map(([n, l], i) => (
