@@ -72,14 +72,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Razor Kings Salon" },
+      { title: "Hashtag Barbers" },
       {
         name: "description",
         content:
           "Premium salon in Dubai offering modern cuts, grooming, and professional barber services.",
       },
-      { name: "author", content: "Razor Kings Salon" },
-      { property: "og:title", content: "Razor Kings Salon" },
+      { name: "author", content: "Hashtag Barbers" },
+      { property: "og:title", content: "Hashtag Barbers" },
       {
         property: "og:description",
         content:
@@ -87,7 +87,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@razorkingssalon" },
+      { name: "twitter:site", content: "@hashtagbarbers" },
     ],
     links: [
       {

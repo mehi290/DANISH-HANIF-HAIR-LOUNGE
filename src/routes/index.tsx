@@ -22,10 +22,10 @@ import {
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
-  component: RazorKingsSalon,
+  component: HgashtagBarbers,
   head: () => ({
     meta: [
-      { title: "Razor Kings Salon" },
+      { title: "Hashtag Barbers" },
       {
         name: "description",
         content:
@@ -68,14 +68,14 @@ const LOCATIONS: Record<
 > = {
   ajman: {
     flag: "🇦🇪",
-    label: "DUBAI",
-    address: "Binghatti Nova, Block T - District 12 (JVC) - Al Barsha South Fourth - Jumeirah Village Circle - Dubai",
-    phone: "045534957",
-    whatsapp: "+97145534957",
+    label: "DUBAI MARINA",
+    address: "Dubai Marina Sail Tower - Shop #1 - Dubai Marina - Dubai",
+    phone: "0552759341",
+    whatsapp: "+971552759341",
     hours: "Sat–Thu: 9:00 AM – 10:00 PM  •  Fri: 2:00 PM – 10:00 PM",
     currency: "AED",
-    mapLabel: "Jumeirah Village Circle, Dubai",
-    mapSearchQuery: "Binghatti Nova, Block T - District 12 (JVC) - Al Barsha South Fourth - Jumeirah Village Circle - Dubai",
+    mapLabel: "Dubai Marina, Dubai",
+    mapSearchQuery: "Dubai Marina Sail Tower - Shop #1 - Dubai Marina - Dubai",
     mapZoom: 14,
   },
 };
@@ -112,7 +112,7 @@ const PRICE_LIST_SUB = [
 
 
 const SERVICES = [
-  { name: "Hair Cut", desc: "Precision haircuts and beards in the heart of JVC, Dubai." },
+  { name: "Hair Cut", desc: "Precision haircuts and beards in the heart of Dubai Marina." },
   { name: "Kids Hair Cut", desc: "Special attention for our younger gentlemen." },
   { name: "Beard Trimming", desc: "Expert beard shaping, lining, and conditioning." },
   { name: "Hair Perm & Styling", desc: "Modern textures and styling for men." },
@@ -135,16 +135,16 @@ const GALLERY = [
 const REVIEWS = [
   {
     quote:
-      "The best fade I've ever had — and I've sat in chairs across London, Riyadh, and New York. Razor Kings Salon Dubai is on another level. The hot towel shave alone is worth the visit.",
+      "The best fade I've ever had — and I've sat in chairs across London, Riyadh, and New York. Hashtag Barbers Dubai Marina is on another level. The hot towel shave alone is worth the visit.",
     name: "Khalid A.",
-    where: "JVC, Dubai",
+    where: "Dubai Marina, Dubai",
     initial: "K",
   },
   {
     quote:
       "I drive from Business Bay every two weeks just for this place. My barber knows exactly what I want before I even sit down. Sharp, fast, and professional every single time.",
     name: "Marcus T.",
-    where: "JVC, Dubai",
+    where: "Dubai Marina, Dubai",
     initial: "M",
   },
 ];
@@ -282,7 +282,7 @@ function GoldButton({
   );
 }
 
-function RazorKingsSalon() {
+function HashtagBarbers() {
   const [location, setLocation] = useState<LocationKey>("ajman");
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -513,8 +513,8 @@ function RazorKingsSalon() {
       >
         <div style={{ height: 120, marginLeft: 20 }}>
           <img
-            src="/razor king logo removed.png"
-            alt="RAZOR KINGS Logo"
+            src="/hashtagbarberlogo.png"
+            alt="HASHTAG BARBERS Logo"
             style={{ height: "100%", width: "auto", display: "block" }}
           />
         </div>
@@ -714,8 +714,8 @@ function RazorKingsSalon() {
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <div style={{ height: 90 }}>
                 <img
-                  src="/razor king logo removed.png"
-                  alt="RAZOR KINGS Logo"
+                  src="/hashtagbarberlogo.png"
+                  alt="HASHTAG BARBERS Logo"
                   style={{ height: "100%", width: "auto", display: "block" }}
                 />
               </div>
@@ -834,12 +834,9 @@ function RazorKingsSalon() {
           paddingBottom: isMobile ? 100 : 120,
         }}
       >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
+        <img
+          src="/hastga barber hero.jpeg"
+          alt="Hashtag Barber Hero Background"
           style={{
             position: "absolute",
             inset: 0,
@@ -847,9 +844,7 @@ function RazorKingsSalon() {
             height: "100%",
             objectFit: "cover",
           }}
-        >
-          <source src="/razor hero.mp4" type="video/mp4" />
-        </video>
+        />
         <div
           style={{
             position: "absolute",
@@ -961,8 +956,8 @@ function RazorKingsSalon() {
         >
           {[
             ["15+", "Expert Barbers"],
-            ["63+", "Happy Clients"],
-            ["4.9 ★", "Google Rating"],
+            ["134+", "Google Reviews"],
+            ["4.6 ★", "Google Rating"],
           ].map(([n, l], i) => (
             <div
               key={l}
@@ -990,6 +985,93 @@ function RazorKingsSalon() {
           ))}
         </div>
       </section>
+
+      {/* ABOUT */}
+      <section id="about" className="ws-section" style={{ background: "#F5F0E8", color: "#3D3D3D", padding: "80px 0 20px" }}>
+        <div className="ws-container">
+          <Reveal>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: isMobile ? "1fr" : "60% 40%",
+                gap: isMobile ? 40 : 80,
+                alignItems: "center",
+              }}
+            >
+
+              <div>
+                <h2
+                  className="bebas"
+                  style={{
+                    fontSize: "clamp(32px, 4vw, 48px)",
+                    color: "#111",
+                    margin: "0 0 20px",
+                    lineHeight: 1,
+                  }}
+                >
+                  About Hashtag Barbers
+                </h2>
+                {[
+                  "Hashtag Barbers wasn’t built to be just another salon, it was built to be yours.",
+                  "Based in Dubai Marina. 15+ internationally trained barbers. One standard: leave looking your sharpest.",
+                  "Walk in. Sit down. Leave sharp.",
+                ].map((p, i) => (
+                  <p
+                    key={i}
+                    style={{
+                      fontSize: 15,
+                      color: "#3D3D3D",
+                      lineHeight: 1.85,
+                      margin: "0 0 14px",
+                    }}
+                  >
+                    {p}
+                  </p>
+                ))}
+
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 25 }}>
+                  {[
+                    "✦ Walk-ins Welcome",
+                    "✦ Premium Men's Products",
+                  ].map((t) => (
+                    <span
+                      key={t}
+                      style={{
+                        border: "1px solid #D4AF37",
+                        color: "#D4AF37",
+                        padding: "8px 20px",
+                        fontSize: 10,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.2em",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                style={{
+                  width: "100%",
+                  height: isMobile ? 300 : 540,
+                  objectFit: "cover",
+                  outline: "1px solid #D4AF37",
+                  outlineOffset: isMobile ? 10 : 14,
+                }}
+              >
+                <source src="/hashtag baraber about video.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <section id="services" style={{ background: "#FDFCFB", padding: "60px 0", position: "relative", overflow: "hidden" }}>
         <div className="ws-container" style={{ marginBottom: 30 }}>
           <h2 className="bebas" style={{ fontSize: "clamp(32px, 4vw, 48px)", color: "#111", margin: 0 }}>
@@ -1156,7 +1238,7 @@ function RazorKingsSalon() {
             </h2>
             <div style={{ width: 60, height: 2, background: "#D4AF37", margin: "0 auto 20px" }} />
             <p style={{ color: "#888", fontSize: 15, maxWidth: 700, margin: "0 auto", lineHeight: 1.6 }}>
-              With 63 Google Reviews and a 4.9 rating our professional barbers guarantee unmatched
+              With 134 Google Reviews and a 4.6 rating our professional barbers guarantee unmatched
               satisfaction in every service. Here's what our guys say.  </p>
           </div>
 
@@ -1204,10 +1286,10 @@ function RazorKingsSalon() {
               {[...Array(3)].map((_, loopIdx) => (
                 <React.Fragment key={loopIdx}>
                   {[
-                    { name: "Gujjar Badsha", initial: "G", location: "JVC, Dubai", text: "Best experience ever, the staff is very professional and the atmosphere is great." },
-                    { name: "Sufaid cherumoth", initial: "S", location: "JVC, Dubai", text: "Highly recommended for anyone looking for a precision cut in Dubai." },
-                    { name: "Frank Lin", initial: "F", location: "JVC, Dubai", text: "Great experience with Davido. He really knows how to style according to face shape." },
-                    { name: "James Wilson", initial: "J", location: "JVC, Dubai", text: "Premium products and excellent service. Worth every dirham." }
+                    { name: "Gujjar Badsha", initial: "G", location: "Dubai Marina, Dubai", text: "Best experience ever, the staff is very professional and the atmosphere is great." },
+                    { name: "Sufaid cherumoth", initial: "S", location: "Dubai Marina, Dubai", text: "Highly recommended for anyone looking for a precision cut in Dubai." },
+                    { name: "Frank Lin", initial: "F", location: "Dubai Marina, Dubai", text: "Great experience with Davido. He really knows how to style according to face shape." },
+                    { name: "James Wilson", initial: "J", location: "Dubai Marina, Dubai", text: "Premium products and excellent service. Worth every dirham." }
                   ].map((rev, idx) => (
                     <div key={`${loopIdx}-${idx}`} style={{
                       flex: isMobile ? "0 0 85%" : "0 0 380px",
@@ -1252,93 +1334,12 @@ function RazorKingsSalon() {
             gap: isMobile ? 15 : 40, marginTop: 50, color: "#D4AF37",
             fontSize: isMobile ? 10 : 13, fontWeight: 700, letterSpacing: "0.2em"
           }}>
-            <span>4.9 / 5 ON GOOGLE</span>
+            <span>4.6 / 5 ON GOOGLE</span>
             <span style={{ fontSize: 10 }}>♦</span>
             <span>1,000+ MEN SERVED</span>
             <span style={{ fontSize: 10 }}>♦</span>
             <span>DUBAI</span>
           </div>
-        </div>
-      </section>
-
-      {/* ABOUT */}
-      <section id="about" className="ws-section" style={{ background: "#F5F0E8", color: "#3D3D3D", padding: "80px 0 20px" }}>
-        <div className="ws-container">
-          <Reveal>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: isMobile ? "1fr" : "60% 40%",
-                gap: isMobile ? 40 : 80,
-                alignItems: "center",
-              }}
-            >
-
-              <div>
-                <h2
-                  className="bebas"
-                  style={{
-                    fontSize: "clamp(32px, 4vw, 48px)",
-                    color: "#111",
-                    margin: "0 0 20px",
-                    lineHeight: 1,
-                  }}
-                >
-                  About Razor Kings Salon
-                </h2>
-                {[
-                  "Razor Kings Salon wasn’t built to be just another salon, it was built to be yours.",
-                  "Based in JVC, Dubai. 15+ internationally trained barbers. One standard: leave looking your sharpest.",
-                  "Walk in. Sit down. Leave sharp.",
-                ].map((p, i) => (
-                  <p
-                    key={i}
-                    style={{
-                      fontSize: 15,
-                      color: "#3D3D3D",
-                      lineHeight: 1.85,
-                      margin: "0 0 14px",
-                    }}
-                  >
-                    {p}
-                  </p>
-                ))}
-
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 25 }}>
-                  {[
-                    "✦ Walk-ins Welcome",
-                    "✦ Premium Men's Products",
-                  ].map((t) => (
-                    <span
-                      key={t}
-                      style={{
-                        border: "1px solid #D4AF37",
-                        color: "#D4AF37",
-                        padding: "8px 20px",
-                        fontSize: 10,
-                        textTransform: "uppercase",
-                        letterSpacing: "0.2em",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <img
-                src="/razor about page.png"
-                alt="About RAZOR KINGS"
-                style={{
-                  width: "100%",
-                  height: isMobile ? 300 : 540,
-                  objectFit: "cover",
-                  outline: "1px solid #D4AF37",
-                  outlineOffset: isMobile ? 10 : 14,
-                }}
-              />
-            </div>
-          </Reveal>
         </div>
       </section>
 
@@ -1434,7 +1435,7 @@ function RazorKingsSalon() {
             })}
           </div>
           <a
-            href="https://www.instagram.com/razorkingsbarber"
+            href="https://www.instagram.com/hashtagbarbers"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -1453,7 +1454,7 @@ function RazorKingsSalon() {
           >
             <Instagram size={18} color="#D4AF37" />
             <span>Follow our work on Instagram</span>
-            <span style={{ color: "#D4AF37", fontWeight: 600 }}>@razorkingsbarber</span>
+            <span style={{ color: "#D4AF37", fontWeight: 600 }}>@hashtagbarbers</span>
             <ArrowRight size={14} color="#D4AF37" />
           </a>
         </div>
@@ -1671,7 +1672,7 @@ function RazorKingsSalon() {
               lineHeight: 1.05,
             }}
           >
-            NEW TO RAZOR KINGS SALON? 20% OFF YOUR FIRST CUT
+            NEW TO HASHTAG BARBERS? 20% OFF YOUR FIRST CUT
           </h2>
           <p
             style={{
@@ -1756,7 +1757,7 @@ function RazorKingsSalon() {
                     margin: "16px 0 24px",
                   }}
                 >
-                  VISIT RAZOR KINGS SALON
+                  VISIT HASHTAG BARBERS
                 </h2>
 
                 <div style={{ marginTop: 32, display: "flex", flexDirection: "column", gap: 18 }}>
@@ -1831,7 +1832,7 @@ function RazorKingsSalon() {
               >
                 <iframe
                   key={location}
-                  title={`Razor Kings Salon ${loc.label} — Google Map`}
+                  title={`Hashtag Barbers ${loc.label} — Google Map`}
                   src={
                     loc.mapEmbedSrc ??
                     googleMapsEmbedSrc(
@@ -1874,7 +1875,7 @@ function RazorKingsSalon() {
                 className="bebas"
                 style={{ fontSize: 30, color: "#D4AF37", letterSpacing: "0.2em" }}
               >
-                RAZOR KINGS SALON
+                HASHTAG BARBERS
               </div>
               <div
                 style={{
@@ -1932,9 +1933,9 @@ function RazorKingsSalon() {
               {
                 title: "GET IN TOUCH",
                 items: [
-                  "Jumeirah Village Circle, Dubai",
+                  "Dubai Marina Sail Tower - Shop #1 - Dubai Marina - Dubai",
                   loc.phone,
-                  "hello@razorkingssalon.com",
+                  "hello@hashtagbarbers.com",
                   "Sat–Sun: 9am – 10pm",
                 ],
               },
@@ -1981,7 +1982,7 @@ function RazorKingsSalon() {
               color: "#444",
             }}
           >
-            <div>© 2026 RAZOR KINGS SALON. All Rights Reserved.</div>
+            <div>© 2026 HASHTAG BARBERS. All Rights Reserved.</div>
             <div style={{ display: "flex", gap: 16 }}>
               <span className="footer-link" style={{ cursor: "pointer", transition: "color 0.3s" }}>
                 Privacy Policy
@@ -2089,7 +2090,7 @@ function BookingModal({
   });
   const times = ["10:00", "11:30", "13:00", "14:30", "16:00", "17:30", "19:00"];
 
-  const summary = `Booking at Razor Kings Salon ${LOCATIONS[location].label}\nService: ${service}\nBarber: ${barber}\nDate: ${date}\nTime: ${time}\nName: ${name}\nPhone: ${phone}`;
+  const summary = `Booking at Hashtag Barbers ${LOCATIONS[location].label}\nService: ${service}\nBarber: ${barber}\nDate: ${date}\nTime: ${time}\nName: ${name}\nPhone: ${phone}`;
   const waLink = `https://wa.me/${LOCATIONS[location].whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(summary)}`;
 
   return (
@@ -2422,7 +2423,7 @@ function BookingModal({
                         lineHeight: 2,
                       }}
                     >
-                      <div><b>Location:</b> Razor Kings Salon {LOCATIONS[location].label}</div>
+                      <div><b>Location:</b> Hashtag Barbers {LOCATIONS[location].label}</div>
                       <div><b>Service:</b> {service}</div>
                       <div><b>Barber:</b> {barber}</div>
                       <div><b>Date:</b> {date} @ {time}</div>
