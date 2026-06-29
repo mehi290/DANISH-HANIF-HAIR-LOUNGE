@@ -125,8 +125,8 @@ const SERVICES = [
 const GALLERY = [
   "/beard trimming.mp4",
   "/our work 1.jpg",
+  "/men-hair-color.mp4",
   "/ladys hair cut.mp4",
-  "/our-work.mp4",
 ];
 
 const REVIEWS = [
@@ -301,7 +301,8 @@ function DanishHanifHairLounge() {
 
       const oneThird = el.scrollWidth / 3;
 
-      if (!isPaused) {
+      const isMobileView = window.innerWidth < 768;
+      if (!isPaused && isMobileView) {
         el.scrollLeft += 0.05 * deltaTime; // Smooth drift
       }
 
@@ -361,7 +362,8 @@ function DanishHanifHairLounge() {
 
       const oneThird = el.scrollWidth / 3;
 
-      if (!isPaused) {
+      const isMobileView = window.innerWidth < 768;
+      if (!isPaused && isMobileView) {
         el.scrollLeft += 0.04 * deltaTime; // Slightly slower for reading
       }
 
@@ -534,10 +536,10 @@ function DanishHanifHairLounge() {
       >
         <div
           className="bebas"
-          style={{ fontSize: "clamp(18px, 2.5vw, 24px)", color: scrolled ? "#111111" : "#D4AF37", letterSpacing: "0.15em", cursor: "pointer", marginLeft: 20 }}
+          style={{ fontSize: "clamp(14px, 2vw, 18px)", color: scrolled ? "#111111" : "#D4AF37", letterSpacing: "0.15em", cursor: "pointer", marginLeft: 20 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          DANISH HANIF HAIR LOUNGE
+          DANISH HANIF
         </div>
 
         <div className="desktop-only" style={{ display: "flex", gap: 24, alignItems: "center" }} ref={navRef}>
@@ -1110,7 +1112,7 @@ function DanishHanifHairLounge() {
           }}
           style={{
             position: "absolute", left: 0, top: "50%", transform: "translateY(-50%)", zIndex: 10,
-            width: 80, height: "100%", border: "none", background: "linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%)",
+            width: 80, height: "100%", border: "none", outline: "none", background: "transparent",
             display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", transition: "opacity 0.3s"
           }}
           onMouseEnter={(e) => {
@@ -1122,7 +1124,7 @@ function DanishHanifHairLounge() {
             document.getElementById("services-scroll")?.dispatchEvent(new CustomEvent("ws-resume"));
           }}
         >
-          <ChevronLeft size={48} color="#fff" />
+          <ChevronLeft size={48} color="#111111" />
         </button>
 
         <button
@@ -1132,7 +1134,7 @@ function DanishHanifHairLounge() {
           }}
           style={{
             position: "absolute", right: 0, top: "50%", transform: "translateY(-50%)", zIndex: 10,
-            width: 80, height: "100%", border: "none", background: "linear-gradient(-90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%)",
+            width: 80, height: "100%", border: "none", outline: "none", background: "transparent",
             display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", transition: "opacity 0.3s"
           }}
           onMouseEnter={(e) => {
@@ -1144,7 +1146,7 @@ function DanishHanifHairLounge() {
             document.getElementById("services-scroll")?.dispatchEvent(new CustomEvent("ws-resume"));
           }}
         >
-          <ChevronRight size={48} color="#fff" />
+          <ChevronRight size={48} color="#111111" />
         </button>
 
         <style>
@@ -1228,7 +1230,7 @@ function DanishHanifHairLounge() {
                     </video>
                   )}
                   <div className="service-content">
-                    <h3 className="bebas" style={{ fontSize: 32, color: "#fff", margin: "0 0 15px" }}>{s.name}</h3>
+                    <h3 className="bebas" style={{ fontSize: "clamp(22px, 2.5vw, 28px)", color: "#fff", margin: "0 0 15px" }}>{s.name}</h3>
                     <button
                       onClick={() => openBook(s.name)}
                       style={{
@@ -1266,15 +1268,9 @@ function DanishHanifHairLounge() {
             >
               WHAT OUR CLIENTS SAY
             </h2>
-            <p style={{ maxWidth: 680, margin: "0 auto 16px", fontSize: 15, color: "#666", lineHeight: 1.6 }}>
+            <p style={{ maxWidth: 680, margin: "0 auto 0", fontSize: 15, color: "#666", lineHeight: 1.6 }}>
               With 61 Google Reviews and a 4.7 rating our professional barbers guarantee unmatched satisfaction in every service. Here's what our guys say.
             </p>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, fontSize: 14, color: "#666" }}>
-              <div style={{ display: "flex", gap: 2 }}>
-                {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#D4AF37" color="#D4AF37" />)}
-              </div>
-              <span><strong>4.9</strong> on Google Reviews</span>
-            </div>
           </div>
 
           <div style={{ position: "relative", maxWidth: 850, margin: "0 auto" }}>
