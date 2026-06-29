@@ -72,14 +72,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Hashtag Barbers" },
+      { title: "DANISH HANIF HAIR LOUNGE" },
       {
         name: "description",
         content:
           "Premium salon in Dubai offering modern cuts, grooming, and professional barber services.",
       },
-      { name: "author", content: "Hashtag Barbers" },
-      { property: "og:title", content: "Hashtag Barbers" },
+      { name: "author", content: "DANISH HANIF HAIR LOUNGE" },
+      { property: "og:title", content: "DANISH HANIF HAIR LOUNGE" },
       {
         property: "og:description",
         content:
@@ -87,7 +87,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@hashtagbarbers" },
+      { name: "twitter:site", content: "@danishhanifhairlounge" },
     ],
     links: [
       {

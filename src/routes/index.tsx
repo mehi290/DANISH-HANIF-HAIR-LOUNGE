@@ -22,10 +22,10 @@ import {
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
-  component: HashtagBarbers,
+  component: DanishHanifHairLounge,
   head: () => ({
     meta: [
-      { title: "Hashtag Barbers" },
+      { title: "DANISH HANIF HAIR LOUNGE" },
       {
         name: "description",
         content:
@@ -68,14 +68,14 @@ const LOCATIONS: Record<
 > = {
   ajman: {
     flag: "🇦🇪",
-    label: "DUBAI MARINA",
-    address: "Dubai Marina Sail Tower - Shop #1 - Dubai Marina - Dubai",
-    phone: "0552759341",
-    whatsapp: "+971552759341",
+    label: "AL KARAMA",
+    address: "10 10A St - Al Karama - Sheikh Hamdan Colony - Dubai",
+    phone: "042242775",
+    whatsapp: "+97142242775",
     hours: "Sat–Thu: 9:00 AM – 10:00 PM  •  Fri: 2:00 PM – 10:00 PM",
     currency: "AED",
-    mapLabel: "Dubai Marina, Dubai",
-    mapSearchQuery: "Dubai Marina Sail Tower - Shop #1 - Dubai Marina - Dubai",
+    mapLabel: "Al Karama, Dubai",
+    mapSearchQuery: "10 10A St - Al Karama - Sheikh Hamdan Colony - Dubai",
     mapZoom: 14,
   },
 };
@@ -112,7 +112,7 @@ const PRICE_LIST_SUB = [
 
 
 const SERVICES = [
-  { name: "Hair Cut", desc: "Precision haircuts and beards in the heart of Dubai Marina." },
+  { name: "Hair Cut", desc: "Precision haircuts and beards in the heart of Al Karama." },
   { name: "Kids Hair Cut", desc: "Special attention for our younger gentlemen." },
   { name: "Beard Trimming", desc: "Expert beard shaping, lining, and conditioning." },
   { name: "Hair Perm & Styling", desc: "Modern textures and styling for men." },
@@ -134,16 +134,16 @@ const GALLERY = [
 const REVIEWS = [
   {
     quote:
-      "The best fade I've ever had — and I've sat in chairs across London, Riyadh, and New York. Hashtag Barbers Dubai Marina is on another level. The hot towel shave alone is worth the visit.",
+      "The best fade I've ever had — and I've sat in chairs across London, Riyadh, and New York. DANISH HANIF HAIR LOUNGE Al Karama is on another level. The hot towel shave alone is worth the visit.",
     name: "Khalid A.",
-    where: "Dubai Marina, Dubai",
+    where: "Al Karama, Dubai",
     initial: "K",
   },
   {
     quote:
       "I drive from Business Bay every two weeks just for this place. My barber knows exactly what I want before I even sit down. Sharp, fast, and professional every single time.",
     name: "Marcus T.",
-    where: "Dubai Marina, Dubai",
+    where: "Al Karama, Dubai",
     initial: "M",
   },
 ];
@@ -281,7 +281,7 @@ function GoldButton({
   );
 }
 
-function HashtagBarbers() {
+function DanishHanifHairLounge() {
   const [location, setLocation] = useState<LocationKey>("ajman");
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -510,11 +510,11 @@ function HashtagBarbers() {
           justifyContent: "space-between",
         }}
       >
-        <div style={{ height: 120, marginLeft: 20 }}>
+        <div style={{ height: 60, marginLeft: 20 }}>
           <img
-            src="/hashtagbarberlogo.png"
-            alt="HASHTAG BARBERS Logo"
-            style={{ height: "100%", width: "auto", display: "block" }}
+            src="/danish logo.png"
+            alt="DANISH HANIF HAIR LOUNGE Logo"
+            style={{ height: "100%", width: "auto", display: "block", filter: "invert(1)", mixBlendMode: "screen" }}
           />
         </div>
 
@@ -711,11 +711,11 @@ function HashtagBarbers() {
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <div style={{ height: 90 }}>
+              <div style={{ height: 50 }}>
                 <img
-                  src="/hashtagbarberlogo.png"
-                  alt="HASHTAG BARBERS Logo"
-                  style={{ height: "100%", width: "auto", display: "block" }}
+                  src="/danish logo.png"
+                  alt="DANISH HANIF HAIR LOUNGE Logo"
+                  style={{ height: "100%", width: "auto", display: "block", filter: "invert(1)", mixBlendMode: "screen" }}
                 />
               </div>
               <button
@@ -833,9 +833,12 @@ function HashtagBarbers() {
           paddingBottom: isMobile ? 100 : 120,
         }}
       >
-        <img
-          src="/hastga barber hero.jpeg"
-          alt="Hashtag Barber Hero Background"
+        <video
+          src="/danish hero.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
           style={{
             position: "absolute",
             inset: 0,
@@ -1008,11 +1011,11 @@ function HashtagBarbers() {
                     lineHeight: 1,
                   }}
                 >
-                  About Hashtag Barbers
+                  About DANISH HANIF HAIR LOUNGE
                 </h2>
                 {[
-                  "Hashtag Barbers wasn’t built to be just another salon, it was built to be yours.",
-                  "Based in Dubai Marina, internationally trained barbers. One standard: leave looking your sharpest.",
+                  "DANISH HANIF HAIR LOUNGE wasn’t built to be just another salon, it was built to be yours.",
+                  "Based in Al Karama, internationally trained barbers. One standard: leave looking your sharpest.",
                   "Walk in. Sit down. Leave sharp.",
                 ].map((p, i) => (
                   <p
@@ -1433,7 +1436,7 @@ function HashtagBarbers() {
             })}
           </div>
           <a
-            href="https://www.instagram.com/hashtag__barbers"
+            href="https://www.instagram.com/danishhanifhairlounge"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -1452,7 +1455,7 @@ function HashtagBarbers() {
           >
             <Instagram size={18} color="#D4AF37" />
             <span>Follow our work on Instagram</span>
-            <span style={{ color: "#D4AF37", fontWeight: 600 }}>@hashtag__barbers</span>
+            <span style={{ color: "#D4AF37", fontWeight: 600 }}>@danishhanifhairlounge</span>
             <ArrowRight size={14} color="#D4AF37" />
           </a>
         </div>
@@ -1670,7 +1673,7 @@ function HashtagBarbers() {
               lineHeight: 1.05,
             }}
           >
-            NEW TO HASHTAG BARBERS? 20% OFF YOUR FIRST CUT
+            NEW TO DANISH HANIF HAIR LOUNGE? 20% OFF YOUR FIRST CUT
           </h2>
           <p
             style={{
@@ -1755,7 +1758,7 @@ function HashtagBarbers() {
                     margin: "16px 0 24px",
                   }}
                 >
-                  VISIT HASHTAG BARBERS
+                  VISIT DANISH HANIF HAIR LOUNGE
                 </h2>
 
                 <div style={{ marginTop: 32, display: "flex", flexDirection: "column", gap: 18 }}>
@@ -1830,7 +1833,7 @@ function HashtagBarbers() {
               >
                 <iframe
                   key={location}
-                  title={`Hashtag Barbers ${loc.label} — Google Map`}
+                  title={`DANISH HANIF HAIR LOUNGE ${loc.label} — Google Map`}
                   src={
                     loc.mapEmbedSrc ??
                     googleMapsEmbedSrc(
@@ -1873,7 +1876,7 @@ function HashtagBarbers() {
                 className="bebas"
                 style={{ fontSize: 30, color: "#D4AF37", letterSpacing: "0.2em" }}
               >
-                HASHTAG BARBERS
+                DANISH HANIF HAIR LOUNGE
               </div>
               <div
                 style={{
@@ -1931,9 +1934,9 @@ function HashtagBarbers() {
               {
                 title: "GET IN TOUCH",
                 items: [
-                  "Dubai Marina Sail Tower - Shop #1 - Dubai Marina - Dubai",
+                  "10 10A St - Al Karama - Sheikh Hamdan Colony - Dubai",
                   loc.phone,
-                  "hello@hashtagbarbers.com",
+                  "hello@danishhanifhairlounge.com",
                   "Sat–Sun: 9am – 10pm",
                 ],
               },
@@ -1980,7 +1983,7 @@ function HashtagBarbers() {
               color: "#444",
             }}
           >
-            <div>© 2026 HASHTAG BARBERS. All Rights Reserved.</div>
+            <div>© 2026 DANISH HANIF HAIR LOUNGE. All Rights Reserved.</div>
             <div style={{ display: "flex", gap: 16 }}>
               <span className="footer-link" style={{ cursor: "pointer", transition: "color 0.3s" }}>
                 Privacy Policy
@@ -2088,7 +2091,7 @@ function BookingModal({
   });
   const times = ["10:00", "11:30", "13:00", "14:30", "16:00", "17:30", "19:00"];
 
-  const summary = `Booking at Hashtag Barbers ${LOCATIONS[location].label}\nService: ${service}\nBarber: ${barber}\nDate: ${date}\nTime: ${time}\nName: ${name}\nPhone: ${phone}`;
+  const summary = `Booking at DANISH HANIF HAIR LOUNGE ${LOCATIONS[location].label}\nService: ${service}\nBarber: ${barber}\nDate: ${date}\nTime: ${time}\nName: ${name}\nPhone: ${phone}`;
   const waLink = `https://wa.me/${LOCATIONS[location].whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(summary)}`;
 
   return (
@@ -2421,7 +2424,7 @@ function BookingModal({
                         lineHeight: 2,
                       }}
                     >
-                      <div><b>Location:</b> Hashtag Barbers {LOCATIONS[location].label}</div>
+                      <div><b>Location:</b> DANISH HANIF HAIR LOUNGE {LOCATIONS[location].label}</div>
                       <div><b>Service:</b> {service}</div>
                       <div><b>Barber:</b> {barber}</div>
                       <div><b>Date:</b> {date} @ {time}</div>
