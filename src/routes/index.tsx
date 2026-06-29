@@ -1336,10 +1336,9 @@ function DanishHanifHairLounge() {
                       <div style={{
                         width: 90, height: 90, borderRadius: "50%", border: "2px solid #D4AF37",
                         overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center",
-                        marginBottom: 20, background: "#F5EFEB", color: "#111", fontSize: 32, fontWeight: 700,
-                        fontFamily: "Georgia, serif"
+                        marginBottom: 20
                       }}>
-                        {rev.name.charAt(0).toUpperCase()}
+                        <img src={rev.avatar} alt={rev.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                       </div>
 
                       <div style={{ display: "flex", gap: 4, marginBottom: 20 }}>
@@ -1356,9 +1355,7 @@ function DanishHanifHairLounge() {
                       <div style={{ fontSize: 16, fontWeight: 600, color: "#111", fontFamily: "Georgia, serif", marginBottom: 4 }}>
                         {rev.name}
                       </div>
-                      <div style={{ fontSize: 12, color: "#D4AF37", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em" }}>
-                        Verified Client • {rev.location}
-                      </div>
+
                     </div>
                   ))}
                 </React.Fragment>
