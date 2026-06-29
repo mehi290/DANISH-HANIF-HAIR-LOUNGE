@@ -95,8 +95,6 @@ const SUB_SERVICES = [
   { name: "Hair  Perm & Styling" },
   { name: "Grooming Packages" },
   { name: "Beard Trimming" },
-  { name: "MANICURE FOR MEN" },
-  { name: "PEDICURE FOR MEN" },
   { name: "FACIAL Treatment" },
 ];
 
@@ -105,7 +103,6 @@ const PRICE_LIST_SUB = [
   { name: "Hair Perm" },
   { name: "Hair Coloring & Styling" },
   { name: "Beard Lineup & Trimming" },
-  { name: "Manicure & Pedicure" },
   { name: "Facial Treatment" },
 ];
 
@@ -115,8 +112,6 @@ const SERVICES = [
   { name: "Beard Trimming", desc: "Expert beard shaping, lining, and conditioning." },
   { name: "Hair Perm & Styling", desc: "Modern textures, perms, and styling." },
   { name: "Grooming Packages", desc: "Cut + beard + hot towel shave combo packages." },
-  { name: "Manicure", desc: "Complete hand grooming and nail care." },
-  { name: "Pedicure", desc: "Relaxing foot treatment and grooming." },
   { name: "Facial Treatment", desc: "Rejuvenating skin treatments." },
   { name: "Classic Hot Towel Shave", desc: "Traditional straight-razor shave experience." },
   { name: "Scalp & Hair Treatments", desc: "Health-focused treatments for hair and scalp." },
@@ -125,7 +120,6 @@ const SERVICES = [
 const GALLERY = [
   "/beard trimming.mp4",
   "/our work 1.jpg",
-  "/men-hair-color.mp4",
   "/ladys hair cut.mp4",
 ];
 
@@ -1205,8 +1199,6 @@ function DanishHanifHairLounge() {
                 { name: "Hair Coloring", video: "/danish lady hair color.mp4" },
                 { name: "Grooming Packages", video: "/grooming-package.mp4" },
                 { name: "Beard Trimming", video: "/beard-lineup.mp4" },
-                { name: "Manicure", img: "/manicure man.jpg" },
-                { name: "Pedicure", video: "/pedicure-men.mp4" },
                 { name: "Facial Treatment", img: "/FACIAl.jpeg" },
               ].map((s, idx) => (
                 <div key={`${loopIdx}-${idx}`} className="service-card" style={{ backgroundImage: s.img ? `url("${s.img}")` : "none" }}>
