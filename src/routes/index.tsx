@@ -109,15 +109,13 @@ const PRICE_LIST_SUB = [
   { name: "Facial Treatment" },
 ];
 
-
-
 const SERVICES = [
-  { name: "Hair Cut", desc: "Precision haircuts and beards in the heart of Al Karama." },
-  { name: "Kids Hair Cut", desc: "Special attention for our younger gentlemen." },
+  { name: "Hair Cut", desc: "Precision haircuts and styling for men & women in Al Karama." },
+  { name: "Kids Hair Cut", desc: "Special attention for our younger guests." },
   { name: "Beard Trimming", desc: "Expert beard shaping, lining, and conditioning." },
-  { name: "Hair Perm & Styling", desc: "Modern textures and styling for men." },
+  { name: "Hair Perm & Styling", desc: "Modern textures, perms, and styling." },
   { name: "Grooming Packages", desc: "Cut + beard + hot towel shave combo packages." },
-  { name: "Manicure", desc: "Complete hand grooming for men." },
+  { name: "Manicure", desc: "Complete hand grooming and nail care." },
   { name: "Pedicure", desc: "Relaxing foot treatment and grooming." },
   { name: "Facial Treatment", desc: "Rejuvenating skin treatments." },
   { name: "Classic Hot Towel Shave", desc: "Traditional straight-razor shave experience." },
@@ -171,28 +169,28 @@ const BARBERS = [
 
 const PRICING = {
   essentials: [
-    ["Haircut (Scissor or Clipper)", "AED 60"],
+    ["Haircut (Men & Women)", "from AED 60"],
     ["Beard Trim & Line-up", "AED 40"],
-    ["Hot Towel Shave", "AED 80"],
-    ["Eyebrow Shaping (Men's)", "AED 25"],
-    ["Hair Wash & Blowdry", "AED 50"],
-    ["Kids' Haircut (Boys Under 12)", "AED 45"],
+    ["Blowdry & Styling", "from AED 70"],
+    ["Eyebrow Shaping & Threading", "AED 25"],
+    ["Hair Wash & Deep Treatment", "AED 50"],
+    ["Kids' Haircut (Under 12)", "AED 45"],
   ],
   signature: [
     ["Cut + Beard Combo", "AED 150"],
-    ["Cut + Hot Towel Shave", "AED 180"],
+    ["Ladies' Cut & Blowdry", "AED 180"],
     ["Full Grooming Package", "AED 220"],
-    ["Hair Colour — Grey Blend", "AED 120"],
+    ["Hair Colour / Highlights", "from AED 200"],
     ["Beard Colour & Tint", "AED 80"],
     ["Cut + Scalp Treatment", "AED 160"],
   ],
   premium: [
-    ["VIP Grooming Ritual (Cut + Beard + Shave)", "AED 350"],
+    ["VIP Grooming Ritual (Cut & Style)", "AED 350"],
     ["Hair Replacement System Fitting", "AED 800"],
-    ["Groom's Package (Event Ready)", "AED 600"],
-    ["Full Hair Colour + Cut", "AED 300"],
-    ["Advanced Scalp Treatment Course", "AED 250"],
-    ["Monthly Membership (Unlimited Cuts)", "AED 499"],
+    ["Bridal / Groom Package", "from AED 600"],
+    ["Full Hair Colour & Balayage", "from AED 400"],
+    ["Advanced Scalp & Hair Course", "AED 250"],
+    ["Monthly Membership (Unlimited Style)", "AED 499"],
   ],
 };
 
@@ -877,7 +875,7 @@ function DanishHanifHairLounge() {
                 letterSpacing: "0.005em",
               }}
             >
-              WHERE SHARP MEN GET SHARPER
+              PREMIUM HAIR SALON FOR MEN & WOMEN
             </h1>
           </Reveal>
 
@@ -932,14 +930,14 @@ function DanishHanifHairLounge() {
         <div className="marquee-container">
           {[...Array(2)].map((_, i) => (
             <div key={i} style={{ display: "flex", alignItems: "center" }}>
-              <div className="marquee-item" style={{ fontSize: 44, color: "#000", fontWeight: 900, fontFamily: "serif" }}>CN Traveler</div>
-              <div className="marquee-item" style={{ fontSize: 48, color: "#000", fontWeight: 900, fontFamily: "Bebas Neue, sans-serif" }}>GQ</div>
-              <div className="marquee-item" style={{ fontSize: 44, color: "#000", fontWeight: 900, fontFamily: "serif" }}>Esquire</div>
               <div className="marquee-item" style={{ fontSize: 48, color: "#000", fontWeight: 900, fontFamily: "Bebas Neue, sans-serif" }}>VOGUE</div>
-              <div className="marquee-item" style={{ fontSize: 48, color: "#000", fontWeight: 900, fontFamily: "serif" }}>Forbes</div>
-              <div className="marquee-item" style={{ fontSize: 52, color: "#000", fontWeight: 900, fontFamily: "serif" }}>CEO</div>
+              <div className="marquee-item" style={{ fontSize: 48, color: "#000", fontWeight: 900, fontFamily: "Bebas Neue, sans-serif" }}>GQ</div>
+              <div className="marquee-item" style={{ fontSize: 44, color: "#000", fontWeight: 900, fontFamily: "serif" }}>ELLE</div>
+              <div className="marquee-item" style={{ fontSize: 44, color: "#000", fontWeight: 900, fontFamily: "serif" }}>Esquire</div>
               <div className="marquee-item" style={{ fontSize: 40, color: "#000", fontWeight: 900, fontFamily: "serif" }}>Harper's BAZAAR</div>
-              <div className="marquee-item" style={{ fontSize: 44, color: "#000", fontWeight: 900, fontFamily: "Bebas Neue, sans-serif" }}>MEN'S HEALTH</div>
+              <div className="marquee-item" style={{ fontSize: 46, color: "#000", fontWeight: 900, fontFamily: "Bebas Neue, sans-serif" }}>GRAZIA</div>
+              <div className="marquee-item" style={{ fontSize: 44, color: "#000", fontWeight: 900, fontFamily: "serif" }}>COSMOPOLITAN</div>
+              <div className="marquee-item" style={{ fontSize: 46, color: "#000", fontWeight: 900, fontFamily: "Bebas Neue, sans-serif" }}>MARIE CLAIRE</div>
             </div>
           ))}
         </div>
@@ -1015,7 +1013,7 @@ function DanishHanifHairLounge() {
                 </h2>
                 {[
                   "DANISH HANIF HAIR LOUNGE wasn’t built to be just another salon, it was built to be yours.",
-                  "Based in Al Karama, internationally trained barbers. One standard: leave looking your sharpest.",
+                  "Based in Al Karama, internationally trained stylists and barbers. One standard: leave looking your sharpest.",
                   "Walk in. Sit down. Leave sharp.",
                 ].map((p, i) => (
                   <p
@@ -1066,7 +1064,7 @@ function DanishHanifHairLounge() {
                   outlineOffset: isMobile ? 10 : 14,
                 }}
               >
-                <source src="/hashtag baraber about video.mp4" type="video/mp4" />
+                <source src="/danish about.mp4" type="video/mp4" />
               </video>
             </div>
           </Reveal>
