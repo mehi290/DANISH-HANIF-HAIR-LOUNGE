@@ -123,9 +123,9 @@ const SERVICES = [
 ];
 
 const GALLERY = [
-  "/hasthag barberbeard.mp4",
+  "/beard trimming.mp4",
   "/our work 1.jpg",
-  "/men-hair-color.mp4",
+  "/ladys hair cut.mp4",
   "/our-work.mp4",
 ];
 
@@ -299,12 +299,20 @@ function DanishHanifHairLounge() {
       const deltaTime = time - lastTime;
       lastTime = time;
 
+      const oneThird = el.scrollWidth / 3;
+
       if (!isPaused) {
         el.scrollLeft += 0.05 * deltaTime; // Smooth drift
-        if (el.scrollLeft >= el.scrollWidth / 3) {
-          el.scrollLeft = 0;
+      }
+
+      if (oneThird > 0) {
+        if (el.scrollLeft >= oneThird * 2) {
+          el.scrollLeft -= oneThird;
+        } else if (el.scrollLeft <= 0) {
+          el.scrollLeft += oneThird;
         }
       }
+
       rafId = requestAnimationFrame(scroll);
     };
 
@@ -319,6 +327,10 @@ function DanishHanifHairLounge() {
     el.addEventListener("touchcancel", handleMouseLeave);
     el.addEventListener("ws-pause", handleMouseEnter);
     el.addEventListener("ws-resume", handleMouseLeave);
+
+    setTimeout(() => {
+      if (el) el.scrollLeft = el.scrollWidth / 3;
+    }, 200);
 
     rafId = requestAnimationFrame(scroll);
     return () => {
@@ -347,12 +359,20 @@ function DanishHanifHairLounge() {
       const deltaTime = time - lastTime;
       lastTime = time;
 
+      const oneThird = el.scrollWidth / 3;
+
       if (!isPaused) {
         el.scrollLeft += 0.04 * deltaTime; // Slightly slower for reading
-        if (el.scrollLeft >= el.scrollWidth / 3) {
-          el.scrollLeft = 0;
+      }
+
+      if (oneThird > 0) {
+        if (el.scrollLeft >= oneThird * 2) {
+          el.scrollLeft -= oneThird;
+        } else if (el.scrollLeft <= 0) {
+          el.scrollLeft += oneThird;
         }
       }
+
       rafId = requestAnimationFrame(scroll);
     };
 
@@ -367,6 +387,10 @@ function DanishHanifHairLounge() {
     el.addEventListener("touchcancel", handleMouseLeave);
     el.addEventListener("ws-pause", handleMouseEnter);
     el.addEventListener("ws-resume", handleMouseLeave);
+
+    setTimeout(() => {
+      if (el) el.scrollLeft = el.scrollWidth / 3;
+    }, 200);
 
     rafId = requestAnimationFrame(scroll);
     return () => {
@@ -500,20 +524,20 @@ function DanishHanifHairLounge() {
           right: 0,
           zIndex: 1000,
           padding: "18px 40px",
-          background: scrolled ? "#111111" : "transparent",
-          boxShadow: scrolled ? "0 2px 30px rgba(0,0,0,0.5)" : "none",
+          background: scrolled ? "#ffffff" : "transparent",
+          boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.06)" : "none",
           transition: "all 0.35s ease",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
         }}
       >
-        <div style={{ height: 60, marginLeft: 20 }}>
-          <img
-            src="/danish logo.png"
-            alt="DANISH HANIF HAIR LOUNGE Logo"
-            style={{ height: "100%", width: "auto", display: "block", filter: "invert(1)", mixBlendMode: "screen" }}
-          />
+        <div
+          className="bebas"
+          style={{ fontSize: "clamp(18px, 2.5vw, 24px)", color: scrolled ? "#111111" : "#D4AF37", letterSpacing: "0.15em", cursor: "pointer", marginLeft: 20 }}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          DANISH HANIF HAIR LOUNGE
         </div>
 
         <div className="desktop-only" style={{ display: "flex", gap: 24, alignItems: "center" }} ref={navRef}>
@@ -522,7 +546,7 @@ function DanishHanifHairLounge() {
               <a
                 href={l.href}
                 className="ws-nav-link"
-                style={{ display: "flex", alignItems: "center", gap: 4, whiteSpace: "nowrap" }}
+                style={{ display: "flex", alignItems: "center", gap: 4, whiteSpace: "nowrap", color: scrolled ? "#111111" : "#E8E0D5" }}
                 onClick={(e) => {
                   if (l.hasDropdown) {
                     e.preventDefault();
@@ -539,7 +563,8 @@ function DanishHanifHairLounge() {
                     size={14}
                     style={{
                       transform: activeDropdown === l.dropdownKey ? "rotate(180deg)" : "none",
-                      transition: "transform 0.3s"
+                      transition: "transform 0.3s",
+                      color: scrolled ? "#111111" : "#E8E0D5"
                     }}
                   />
                 )}
@@ -651,9 +676,9 @@ function DanishHanifHairLounge() {
           <button
             onClick={() => openBook()}
             style={{
-              border: "1.5px solid #D4AF37",
+              border: scrolled ? "1.5px solid #111111" : "1.5px solid #D4AF37",
               background: "transparent",
-              color: "#D4AF37",
+              color: scrolled ? "#111111" : "#D4AF37",
               padding: "10px 22px",
               fontSize: 11,
               letterSpacing: "0.18em",
@@ -683,7 +708,7 @@ function DanishHanifHairLounge() {
         <button
           className="mobile-only"
           onClick={() => setMobileOpen(true)}
-          style={{ background: "transparent", border: "none", color: "#D4AF37", cursor: "pointer" }}
+          style={{ background: "transparent", border: "none", color: scrolled ? "#111111" : "#D4AF37", cursor: "pointer" }}
           aria-label="Open menu"
         >
           <Menu size={28} />
@@ -709,12 +734,11 @@ function DanishHanifHairLounge() {
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <div style={{ height: 50 }}>
-                <img
-                  src="/danish logo.png"
-                  alt="DANISH HANIF HAIR LOUNGE Logo"
-                  style={{ height: "100%", width: "auto", display: "block", filter: "invert(1)", mixBlendMode: "screen" }}
-                />
+              <div
+                className="bebas"
+                style={{ fontSize: 20, color: "#D4AF37", letterSpacing: "0.15em" }}
+              >
+                DANISH HANIF HAIR LOUNGE
               </div>
               <button
                 onClick={() => setMobileOpen(false)}
@@ -944,7 +968,7 @@ function DanishHanifHairLounge() {
       </section>
 
       {/* GOLD STATS BAR */}
-      <section style={{ background: "#D4AF37", padding: "10px 40px" }}>
+      <section style={{ background: "#D4AF37", padding: "20px 40px", borderBottom: "1px solid rgba(0, 0, 0, 0.1)" }}>
         <div
           style={{
             maxWidth: 1200,
@@ -955,24 +979,24 @@ function DanishHanifHairLounge() {
           }}
         >
           {[
-            ["5+", "Expert Barbers"],
-            ["134+", "Google Reviews"],
-            ["4.6 ★", "Google Rating"],
+            ["1000+", "Satisfied Clients"],
+            ["61+", "Google Reviews"],
+            ["4.7 ★", "Google Rating"],
           ].map(([n, l], i) => (
             <div
               key={l}
               style={{
                 textAlign: "center",
-                borderRight: !isMobile && i < 2 ? "1px solid rgba(255,255,255,0.4)" : "none",
+                borderRight: !isMobile && i < 2 ? "1px solid rgba(0, 0, 0, 0.15)" : "none",
               }}
             >
-              <div className="bebas" style={{ fontSize: 28, color: "#111" }}>
+              <div className="bebas" style={{ fontSize: 28, color: "#111111" }}>
                 {n}
               </div>
               <div
                 style={{
                   fontSize: 8,
-                  color: "#fff",
+                  color: "rgba(17, 17, 17, 0.75)",
                   textTransform: "uppercase",
                   letterSpacing: "0.2em",
                   fontWeight: 500,
@@ -987,7 +1011,7 @@ function DanishHanifHairLounge() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="ws-section" style={{ background: "#F5F0E8", color: "#3D3D3D", padding: "80px 0 20px" }}>
+      <section id="about" className="ws-section" style={{ background: "#ffffff", color: "#3D3D3D", padding: "80px 0 20px" }}>
         <div className="ws-container">
           <Reveal>
             <div
@@ -1071,9 +1095,9 @@ function DanishHanifHairLounge() {
         </div>
       </section>
 
-      <section id="services" style={{ background: "#FDFCFB", padding: "60px 0", position: "relative", overflow: "hidden" }}>
+      <section id="services" style={{ background: "#ffffff", padding: "60px 0", position: "relative", overflow: "hidden" }}>
         <div className="ws-container" style={{ marginBottom: 30 }}>
-          <h2 className="bebas" style={{ fontSize: "clamp(32px, 4vw, 48px)", color: "#111", margin: 0 }}>
+          <h2 className="bebas" style={{ fontSize: "clamp(32px, 4vw, 48px)", color: "#111111", margin: 0 }}>
             PREMIUM SERVICES
           </h2>
         </div>
@@ -1172,11 +1196,11 @@ function DanishHanifHairLounge() {
           {[...Array(3)].map((_, loopIdx) => (
             <React.Fragment key={loopIdx}>
               {[
-                { name: "Hair Cut", video: "/long-hair-cut-men.mp4" },
+                { name: "Hair Cut", video: "/danish men hair cut.mp4" },
                 { name: "Kids Hair Cut", video: "/baby-men-hair-cut.mp4" },
                 { name: "Medium Fade Hair Cut", video: "/medium-fade-hair-cut-men.mp4" },
                 { name: "Skin Fade Haircut", video: "/skin-fade-hair-cut.mp4" },
-                { name: "Hair Perm & Styling", video: "/perm-hairstyle.mp4" },
+                { name: "Hair Coloring", video: "/danish lady hair color.mp4" },
                 { name: "Grooming Packages", video: "/grooming-package.mp4" },
                 { name: "Beard Trimming", video: "/beard-lineup.mp4" },
                 { name: "Manicure", img: "/manicure man.jpg" },
@@ -1229,30 +1253,43 @@ function DanishHanifHairLounge() {
         </div>
       </section>
 
-      <section style={{ background: "#111", padding: "60px 0 100px", position: "relative" }}>
+      <section style={{ background: "#ffffff", color: "#3D3D3D", padding: "80px 0 80px", position: "relative" }}>
         <div className="ws-container">
-          <div style={{ textAlign: "center", marginBottom: 60 }}>
-            <h2 className="bebas" style={{ fontSize: "clamp(32px, 4vw, 48px)", color: "#fff", marginBottom: 15 }}>
-              WHAT OUR CUSTOMERS SAY
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <h2
+              className="bebas"
+              style={{
+                fontSize: "clamp(32px, 4vw, 48px)",
+                color: "#111111",
+                margin: "0 auto 14px",
+              }}
+            >
+              WHAT OUR CLIENTS SAY
             </h2>
-            <div style={{ width: 60, height: 2, background: "#D4AF37", margin: "0 auto 20px" }} />
-            <p style={{ color: "#888", fontSize: 15, maxWidth: 700, margin: "0 auto", lineHeight: 1.6 }}>
-              With 134 Google Reviews and a 4.6 rating our professional barbers guarantee unmatched
-              satisfaction in every service. Here's what our guys say.  </p>
+            <p style={{ maxWidth: 680, margin: "0 auto 16px", fontSize: 15, color: "#666", lineHeight: 1.6 }}>
+              With 61 Google Reviews and a 4.7 rating our professional barbers guarantee unmatched satisfaction in every service. Here's what our guys say.
+            </p>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, fontSize: 14, color: "#666" }}>
+              <div style={{ display: "flex", gap: 2 }}>
+                {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#D4AF37" color="#D4AF37" />)}
+              </div>
+              <span><strong>4.9</strong> on Google Reviews</span>
+            </div>
           </div>
 
-          <div style={{ position: "relative" }}>
+          <div style={{ position: "relative", maxWidth: 850, margin: "0 auto" }}>
             <button
               onMouseEnter={() => document.getElementById("reviews-scroll")?.dispatchEvent(new CustomEvent("ws-pause"))}
               onMouseLeave={() => document.getElementById("reviews-scroll")?.dispatchEvent(new CustomEvent("ws-resume"))}
               onClick={() => {
                 const el = document.getElementById("reviews-scroll");
-                if (el) el.scrollBy({ left: -400, behavior: "smooth" });
+                if (el) el.scrollBy({ left: -850, behavior: "smooth" });
               }}
               style={{
-                position: "absolute", left: isMobile ? -10 : -40, top: "50%", transform: "translateY(-50%)", zIndex: 5,
-                width: 40, height: 40, borderRadius: "50%", border: "1px solid #333", background: "rgba(0,0,0,0.5)",
-                display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#fff"
+                position: "absolute", left: isMobile ? -10 : -60, top: "50%", transform: "translateY(-50%)", zIndex: 5,
+                width: 44, height: 44, borderRadius: "50%", border: "1px solid #E5E0D8", background: "#fff",
+                display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#666",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.05)"
               }}
             >
               <ChevronLeft size={20} />
@@ -1263,12 +1300,13 @@ function DanishHanifHairLounge() {
               onMouseLeave={() => document.getElementById("reviews-scroll")?.dispatchEvent(new CustomEvent("ws-resume"))}
               onClick={() => {
                 const el = document.getElementById("reviews-scroll");
-                if (el) el.scrollBy({ left: 400, behavior: "smooth" });
+                if (el) el.scrollBy({ left: 850, behavior: "smooth" });
               }}
               style={{
-                position: "absolute", right: isMobile ? -10 : -40, top: "50%", transform: "translateY(-50%)", zIndex: 5,
-                width: 40, height: 40, borderRadius: "50%", border: "1px solid #333", background: "rgba(0,0,0,0.5)",
-                display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#fff"
+                position: "absolute", right: isMobile ? -10 : -60, top: "50%", transform: "translateY(-50%)", zIndex: 5,
+                width: 44, height: 44, borderRadius: "50%", border: "1px solid #E5E0D8", background: "#fff",
+                display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#666",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.05)"
               }}
             >
               <ChevronRight size={20} />
@@ -1277,7 +1315,7 @@ function DanishHanifHairLounge() {
             <div
               id="reviews-scroll"
               style={{
-                display: "flex", gap: 30, overflowX: "auto", padding: "20px 0",
+                display: "flex", gap: 30, overflowX: "auto", padding: "20px 10px",
                 msOverflowStyle: "none",
                 scrollbarWidth: "none"
               }}
@@ -1285,66 +1323,81 @@ function DanishHanifHairLounge() {
               {[...Array(3)].map((_, loopIdx) => (
                 <React.Fragment key={loopIdx}>
                   {[
-                    { name: "Gujjar Badsha", initial: "G", location: "Dubai Marina, Dubai", text: "Best experience ever, the staff is very professional and the atmosphere is great." },
-                    { name: "Sufaid cherumoth", initial: "S", location: "Dubai Marina, Dubai", text: "Highly recommended for anyone looking for a precision cut in Dubai." },
-                    { name: "Frank Lin", initial: "F", location: "Dubai Marina, Dubai", text: "Great experience with Davido. He really knows how to style according to face shape." },
-                    { name: "James Wilson", initial: "J", location: "Dubai Marina, Dubai", text: "Premium products and excellent service. Worth every dirham." }
+                    { name: "Gujjar Badsha", location: "Al Karama, Dubai", text: "Best experience ever, the staff is very professional and the atmosphere is great.", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80" },
+                    { name: "Sufaid cherumoth", location: "Al Karama, Dubai", text: "Highly recommended for anyone looking for a precision cut in Dubai.", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&q=80" },
+                    { name: "Frank Lin", location: "Al Karama, Dubai", text: "Great experience with Davido. He really knows how to style according to face shape.", avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&q=80" },
+                    { name: "James Wilson", location: "Al Karama, Dubai", text: "Premium products and excellent service. Worth every dirham.", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&q=80" }
                   ].map((rev, idx) => (
                     <div key={`${loopIdx}-${idx}`} style={{
-                      flex: isMobile ? "0 0 85%" : "0 0 380px",
-                      background: "#1A1A1A", padding: "40px",
-                      display: "flex", flexDirection: "column", gap: 25, borderTop: "4px solid #D4AF37",
+                      flex: "0 0 100%",
+                      width: "100%",
+                      maxWidth: isMobile ? "100%" : 830,
+                      background: "#fff", padding: isMobile ? "30px 20px" : "50px 60px",
+                      display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center",
+                      borderRadius: 8, boxShadow: "0 10px 30px rgba(0,0,0,0.03)",
                       position: "relative"
                     }}>
-                      <div style={{ display: "flex", gap: 4, marginBottom: -10 }}>
-                        {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#D4AF37" color="#D4AF37" />)}
+                      <div style={{
+                        width: 90, height: 90, borderRadius: "50%", border: "2px solid #D4AF37",
+                        overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center",
+                        marginBottom: 20, background: "#F5EFEB", color: "#111", fontSize: 32, fontWeight: 700,
+                        fontFamily: "Georgia, serif"
+                      }}>
+                        {rev.name.charAt(0).toUpperCase()}
                       </div>
-                      <Quote size={32} color="#D4AF37" style={{ opacity: 0.8 }} />
+
+                      <div style={{ display: "flex", gap: 4, marginBottom: 20 }}>
+                        {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#D4AF37" color="#D4AF37" />)}
+                      </div>
+
                       <p style={{
-                        fontSize: 16, color: "#eee", lineHeight: 1.8, margin: 0,
-                        fontStyle: "italic", fontWeight: 300
+                        fontSize: "clamp(15px, 2.5vw, 18px)", color: "#3D3D3D", lineHeight: 1.8, margin: "0 0 24px",
+                        maxWidth: 680, fontStyle: "normal", fontWeight: 400
                       }}>
                         "{rev.text}"
                       </p>
-                      <div style={{ marginTop: "auto", display: "flex", gap: 15, alignItems: "center" }}>
-                        <div style={{
-                          width: 40, height: 40, borderRadius: "50%", background: "#D4AF37",
-                          display: "flex", alignItems: "center", justifyContent: "center",
-                          color: "#000", fontWeight: "bold", fontSize: 14
-                        }}>
-                          {rev.initial}
-                        </div>
-                        <div>
-                          <div style={{ fontSize: 15, fontWeight: 600, color: "#fff" }}>{rev.name}</div>
-                          <div style={{ fontSize: 12, color: "#666" }}>
-                            {rev.location} • Google Reviews
-                          </div>
-                        </div>
+
+                      <div style={{ fontSize: 16, fontWeight: 600, color: "#111", fontFamily: "Georgia, serif", marginBottom: 4 }}>
+                        {rev.name}
+                      </div>
+                      <div style={{ fontSize: 12, color: "#D4AF37", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                        Verified Client • {rev.location}
                       </div>
                     </div>
                   ))}
                 </React.Fragment>
               ))}
             </div>
+
+            <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 24 }}>
+              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#E5DED5" }}></span>
+              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#E5DED5" }}></span>
+              <span style={{ width: 24, height: 8, borderRadius: 4, background: "#D4AF37" }}></span>
+              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#E5DED5" }}></span>
+            </div>
           </div>
 
           <div style={{
-            display: "flex", alignItems: "center", justifyContent: "center",
-            gap: isMobile ? 15 : 40, marginTop: 50, color: "#D4AF37",
-            fontSize: isMobile ? 10 : 13, fontWeight: 700, letterSpacing: "0.2em"
+            display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+            background: "#fff", border: "1px solid #E5E0D8", padding: "10px 24px",
+            borderRadius: 30, width: "fit-content", margin: "40px auto 0",
+            boxShadow: "0 4px 15px rgba(0,0,0,0.02)"
           }}>
-            <span>4.6 / 5 ON GOOGLE</span>
-            <span style={{ fontSize: 10 }}>♦</span>
-            <span>1,000+ MEN SERVED</span>
-            <span style={{ fontSize: 10 }}>♦</span>
-            <span>DUBAI</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l3.66-2.85z" fill="#FBBC05" />
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.85c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+            </svg>
+            <span style={{ fontSize: 13, color: "#3D3D3D", fontWeight: 600 }}>Verified Reviews</span>
+            <span style={{ fontSize: 13, color: "#666" }}>•</span>
+            <span style={{ fontSize: 13, color: "#D4AF37", fontWeight: 700 }}>★ 4.7</span>
           </div>
         </div>
       </section>
 
-
       {/* GALLERY */}
-      <section className="ws-section" style={{ background: "#111111", color: "#E8E0D5", padding: "40px 0 100px" }}>
+      <section className="ws-section" style={{ background: "#ffffff", color: "#3D3D3D", padding: "40px 0 100px" }}>
         <div className="ws-container">
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 30 }}>
@@ -1352,11 +1405,11 @@ function DanishHanifHairLounge() {
                 className="bebas"
                 style={{
                   fontSize: "clamp(32px, 4vw, 48px)",
-                  color: "#fff",
+                  color: "#111111",
                   margin: 0,
                 }}
               >
-                THE CUTS SPEAK FOR THEMSELVES
+                OUR WORK
               </h2>
             </div>
           </Reveal>
@@ -1434,7 +1487,7 @@ function DanishHanifHairLounge() {
             })}
           </div>
           <a
-            href="https://www.instagram.com/danishhanifhairlounge"
+            href="https://www.instagram.com/dhhairlounge_hairstylist"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -1453,7 +1506,7 @@ function DanishHanifHairLounge() {
           >
             <Instagram size={18} color="#D4AF37" />
             <span>Follow our work on Instagram</span>
-            <span style={{ color: "#D4AF37", fontWeight: 600 }}>@danishhanifhairlounge</span>
+            <span style={{ color: "#D4AF37", fontWeight: 600 }}>@dhhairlounge_hairstylist</span>
             <ArrowRight size={14} color="#D4AF37" />
           </a>
         </div>
@@ -1461,8 +1514,7 @@ function DanishHanifHairLounge() {
 
 
 
-      {/* PRICING */}
-      <section id="pricing" className="ws-section" style={{ background: "#111111", padding: "60px 0 100px" }}>
+      <section id="pricing" className="ws-section" style={{ background: "#ffffff", padding: "60px 0 100px" }}>
         <div className="ws-container">
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 40 }}>
@@ -1470,7 +1522,7 @@ function DanishHanifHairLounge() {
                 className="bebas"
                 style={{
                   fontSize: "clamp(36px, 5vw, 68px)",
-                  color: "#fff",
+                  color: "#111111",
                   margin: "16px 0 14px",
                 }}
               >
@@ -1646,97 +1698,9 @@ function DanishHanifHairLounge() {
         </div>
       </section>
 
-      {/* OFFER BANNER */}
-      <section
-        style={{
-          minHeight: 300,
-          padding: "60px 20px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          textAlign: "center",
-          background:
-            "linear-gradient(135deg, #5C3D0A 0%, #D4AF37 50%, #5C3D0A 100%)",
-          backgroundSize: "200% 200%",
-          animation: "ws-shimmer 6s infinite",
-        }}
-      >
-        <div style={{ maxWidth: 900 }}>
-          <h2
-            className="bebas"
-            style={{
-              fontSize: "clamp(40px, 6vw, 72px)",
-              color: "#fff",
-              margin: 0,
-              lineHeight: 1.05,
-            }}
-          >
-            NEW TO DANISH HANIF HAIR LOUNGE? 20% OFF YOUR FIRST CUT
-          </h2>
-          <p
-            style={{
-              fontSize: 14,
-              color: "rgba(255,255,255,0.85)",
-              marginTop: 18,
-              lineHeight: 1.7,
-            }}
-          >
-            Valid for new male clients at our Dubai salon. No code needed —
-            just mention it when you WhatsApp to book your chair.
-          </p>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              gap: 16,
-              marginTop: 32,
-              flexWrap: "wrap",
-            }}
-          >
-            <button
-              onClick={() => openBook()}
-              style={{
-                background: "#111",
-                color: "#fff",
-                border: "none",
-                padding: "15px 36px",
-                fontSize: 11,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                fontWeight: 600,
-                cursor: "pointer",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 10,
-                fontFamily: "Inter",
-              }}
-            >
-              <MessageCircle size={16} color="#25D366" />
-              BOOK ON WHATSAPP
-            </button>
-            <button
-              onClick={() => window.location.href = `tel:${loc.phone.replace(/\s/g, '')}`}
-              style={{
-                background: "transparent",
-                color: "#fff",
-                border: "1.5px solid #fff",
-                padding: "15px 36px",
-                fontSize: 11,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                fontWeight: 600,
-                cursor: "pointer",
-                fontFamily: "Inter",
-              }}
-            >
-              CALL TO BOOK
-            </button>
-          </div>
-        </div>
-      </section>
 
       {/* LOCATIONS & CONTACT */}
-      <section id="contact" className="ws-section" style={{ background: "#F5F0E8", color: "#3D3D3D" }}>
+      <section id="contact" className="ws-section" style={{ background: "#ffffff", color: "#3D3D3D" }}>
         <div className="ws-container">
           <Reveal>
             <div
@@ -1891,15 +1855,18 @@ function DanishHanifHairLounge() {
                 YOUR LOOK. OUR CRAFT.
               </div>
               <div style={{ display: "flex", gap: 16, marginTop: 24 }}>
-                {[Instagram, Facebook, MessageCircle, Youtube].map((Icon, i) => (
-                  <Icon
-                    key={i}
-                    size={18}
-                    className="social-icon"
-                    color="#D4AF37"
-                    style={{ cursor: "pointer", transition: "all 0.3s ease" }}
-                  />
-                ))}
+                <a href="https://www.instagram.com/dhhairlounge_hairstylist" target="_blank" rel="noopener noreferrer" style={{ transition: "all 0.3s ease" }}>
+                  <Instagram size={18} className="social-icon" color="#D4AF37" style={{ cursor: "pointer" }} />
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ transition: "all 0.3s ease" }}>
+                  <Facebook size={18} className="social-icon" color="#D4AF37" style={{ cursor: "pointer" }} />
+                </a>
+                <a href={`https://wa.me/${loc.whatsapp.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer" style={{ transition: "all 0.3s ease" }}>
+                  <MessageCircle size={18} className="social-icon" color="#D4AF37" style={{ cursor: "pointer" }} />
+                </a>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" style={{ transition: "all 0.3s ease" }}>
+                  <Youtube size={18} className="social-icon" color="#D4AF37" style={{ cursor: "pointer" }} />
+                </a>
               </div>
             </div>
 
